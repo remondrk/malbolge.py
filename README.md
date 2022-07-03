@@ -11,5 +11,5 @@ Running the interpreter with 'specification' enables the 'specification mode' th
 In the original interpreter and the specification, instruction codes of input and output are reversed with respect to each other. This interpreter is based on the original interpreter, not the specification, unless 'specification mode' is enabled. Note that most of the malbolge code in the internet is written according to the original interpreter.
 
 ## References
-[Malbolge - Esolang](https://en.wikipedia.org/wiki/Malbolge) <br>
+[Malbolge - Esolang](https://esolangs.org/wiki/Malbolge) <br>
 [Original interpreter and specifications](https://web.archive.org/web/20000815230017/http:/www.mines.edu/students/b/bolmstea/malbolge/)
