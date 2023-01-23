@@ -1,8 +1,12 @@
 from os.path import exists as file_exists
 import sys
 
-LEGAL_OPS = (4, 5, 23, 39, 40, 62, 68, 81)
-THE_TABLE = ( (1, 0, 0), (1, 0, 2), (2, 2, 1) )
+LEGAL_OPS = (4, 5, 23, 39,\
+             40, 62, 68, 81)
+
+THE_TABLE = ( (1, 0, 0), (1, 0, 2),\
+             (2, 2, 1) )
+
 MEM_SIZE  = 3 ** 10
 CHAR_SET  = '5z]&gqtyfr$(we4{WP)H-Zn,[%\\3dL+Q;>U!pJS72FhOA1C' \
             'B6v^=I_0/8|jsb9m<.TVac`uY*MK\'X~xDl}REokN:#?G"i@'
