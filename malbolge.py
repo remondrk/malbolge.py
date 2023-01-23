@@ -2,8 +2,8 @@ from os.path import exists as file_exists
 import sys
 
 LEGAL_OPS = (4, 5, 23, 39, 40, 62, 68, 81)
-THE_TABLE = ((1, 0, 0), (1, 0, 2), (2, 2, 1))
-MEM_SIZE  = 3**10
+THE_TABLE = ( (1, 0, 0), (1, 0, 2), (2, 2, 1) )
+MEM_SIZE  = 3 ** 10
 CHAR_SET  = '5z]&gqtyfr$(we4{WP)H-Zn,[%\\3dL+Q;>U!pJS72FhOA1C' \
             'B6v^=I_0/8|jsb9m<.TVac`uY*MK\'X~xDl}REokN:#?G"i@'
 
@@ -15,10 +15,10 @@ def write_to_stdout(m):
     sys.stdout.flush()
 
 def the_op(n1, n2):
-    return sum(THE_TABLE[n2//3**i%3][n1//3**i%3] * 3**i for i in range(10))
+    return sum(THE_TABLE[n2 // 3 ** i % 3][n1 // 3 ** i % 3] * 3 ** i for i in range(10))
 
 def rot_right(n):
-    return (n % 3) * 3**9 + n // 3
+    return (n % 3) * 3 ** 9 + n // 3
 
 def init(src, mem):
     c = 0
@@ -34,30 +34,38 @@ def init(src, mem):
         c += 1
 
     for i in range(c, MEM_SIZE):
-        mem[i] = the_op(mem[i-1], mem[i-2])
+        mem[i] = the_op( mem[i - 1], mem[i - 2] )
 
 def run(mem):
-    a, c, d = 0, 0, 0
+    a = 0
+    c = 0
+    d = 0
 
     while True:
-        op = (c + mem[c]) % 94
+        op = ( c + mem[c] ) % 94
 
         if op == 4:
             c = mem[d]
+            
         if op == print_op:
             write_to_stdout(chr(a % 256))
+            
         if op == input_op:
             a = ord(sys.stdin.read(1))
+            
         if op == 39:
             a = mem[d] = rot_right(mem[d])
+            
         if op == 40:
             d = mem[d]
+            
         if op == 62:
             a = mem[d] = the_op(a, mem[d])
+            
         if op == 81:
             return
 
-        mem[c] = ord(CHAR_SET[mem[c] - 33])
+        mem[c] = ord( CHAR_SET[ mem[c] - 33 ] )
         c = (c + 1) % MEM_SIZE
         d = (d + 1) % MEM_SIZE
 
